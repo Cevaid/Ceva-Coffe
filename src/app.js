@@ -124,7 +124,7 @@ List Pesanan \n ${JSON.parse(obj.items).map((item) => `${item.name} (${item.quan
 Total Harga : ${rupiah(obj.total)}
 
 Terima Kasih`
-}
+};
 
 // Konversi Ke Rupiah
 const rupiah = (number) => {

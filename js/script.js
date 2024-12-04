@@ -48,32 +48,32 @@ document.addEventListener('click', function(e){
 });
 
 // Google Drive Form
-// const scriptURL = 'https://script.google.com/macros/s/AKfycbxG5VmdTFHxgF60_BcEOi0iNGrzruKodUGxBUg1WQ1E-qMxSenj74BZkWnWPPyyzuvG/exec';
-// const form = document.forms['contact-form'];
-// const btnSubmit = document.querySelector('.contact-btn');
-// const btnSubmitLoading = document.querySelector('.contact-btn-loading');
-// const contactAlert = document.querySelector('.alert-contact');
-
-// form.addEventListener('submit', e => {
-//     e.preventDefault();
-//     btnSubmit.style.display = 'none';
-//     btnSubmitLoading.style.display = 'inline-block';
-//     fetch(scriptURL, { method: 'POST', body: new FormData(form)})
-//     .then(response => {
-//         btnSubmit.style.display = 'inline-block';
-//         btnSubmitLoading.style.display = 'none';
-//         contactAlert.style.display = 'inline-block';
-//         form.reset();
-//         console.log('Success!', response);
-//     })
-//     .catch(error => console.error('Error!', error.message));
-// });
+const scriptURL = 'https://script.google.com/macros/s/AKfycbxG5VmdTFHxgF60_BcEOi0iNGrzruKodUGxBUg1WQ1E-qMxSenj74BZkWnWPPyyzuvG/exec';
+const formContact = document.forms['contact-form'];
+const btnSubmit = document.querySelector('.contact-btn');
+const btnSubmitLoading = document.querySelector('.contact-btn-loading');
+const contactAlert = document.querySelector('.alert-contact');
+formContact.addEventListener('submit', e => {
+    e.preventDefault();
+    btnSubmit.style.display = 'none';
+    btnSubmitLoading.style.display = 'inline-block';
+    fetch(scriptURL, { method: 'POST', body: new FormData(formContact)})
+    .then(response => {
+        btnSubmit.style.display = 'inline-block';
+        btnSubmitLoading.style.display = 'none';
+        contactAlert.style.display = 'inline-block';
+        formContact.reset();
+        console.log('Success!', response);
+    })
+    .catch(error => console.error('Error!', error.message));
+});
 
 // Toogle Close Alert Contact
-document.querySelector('.contact .close-alert-contact').onclick = (e) => {
+const closeAlertContact = document.querySelector('.close-alert-contact');
+closeAlertContact.addEventListener('click', (e) => {
     contactAlert.style.display = 'none';
     e.preventDefault();
-};
+});
 
 // Toogle Close Detail Item
 document.querySelector('.box-item-detail .close-icon').onclick = (e) => {
